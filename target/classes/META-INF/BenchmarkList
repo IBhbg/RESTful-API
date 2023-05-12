@@ -1,0 +1,5 @@
+JMH S 17 pro.BenchmarkDemo S 49 pro.generated.BenchmarkDemo_testTheMethod_jmhTest S 13 testTheMethod S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 27 com.ProductServletBenchmark S 60 com.generated.ProductServletBenchmark_doGetBenchmark_jmhTest S 14 doGetBenchmark S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 27 com.ProductServletBenchmark S 61 com.generated.ProductServletBenchmark_doPostBenchmark_jmhTest S 15 doPostBenchmark S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 27 com.ProductServletBenchmark S 60 com.generated.ProductServletBenchmark_doPutBenchmark_jmhTest S 14 doPutBenchmark S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 27 com.ProductServletBenchmark S 63 com.generated.ProductServletBenchmark_doDeleteBenchmark_jmhTest S 17 doDeleteBenchmark S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 

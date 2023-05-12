@@ -1,0 +1,11 @@
+dontinline,*.*_all_jmhStub
+dontinline,*.*_avgt_jmhStub
+dontinline,*.*_sample_jmhStub
+dontinline,*.*_ss_jmhStub
+dontinline,*.*_thrpt_jmhStub
+inline,com/ProductServletBenchmark$ServletState.setup
+inline,com/ProductServletBenchmark.doDeleteBenchmark
+inline,com/ProductServletBenchmark.doGetBenchmark
+inline,com/ProductServletBenchmark.doPostBenchmark
+inline,com/ProductServletBenchmark.doPutBenchmark
+inline,pro/BenchmarkDemo.testTheMethod
