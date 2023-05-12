@@ -7,6 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openjdk.jmh.annotations.*;
+import org.springframework.mock.web.MockHttpServletRequest;
+
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.mock.web.MockHttpServletResponse;
 import pro.Product;
 
 public class ProductServletBenchmark {
