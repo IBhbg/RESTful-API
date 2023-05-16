@@ -33,7 +33,6 @@ import org.openjdk.jmh.results.AggregationPolicy;
 import org.openjdk.jmh.runner.FailureAssistException;
 
 import com.generated.ProductServletBenchmark_jmhType;
-import com.generated.ProductServletBenchmark_ServletState_jmhType;
 public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
 
     boolean p000, p001, p002, p003, p004, p005, p006, p007, p008, p009, p010, p011, p012, p013, p014, p015;
@@ -70,72 +69,31 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
             ProductServletBenchmark_jmhType l_productservletbenchmark0_0 = _jmh_tryInit_f_productservletbenchmark0_0(control);
-            ProductServletBenchmark_ServletState_jmhType l_servletstate1_G = _jmh_tryInit_f_servletstate1_G(control);
 
             control.preSetup();
-            if (ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.compareAndSet(l_servletstate1_G, 0, 1)) {
-                try {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (!l_servletstate1_G.readyIteration) {
-                        l_servletstate1_G.setup();
-                        l_servletstate1_G.readyIteration = true;
-                    }
-                } catch (Throwable t) {
-                    control.isFailing = true;
-                    throw t;
-                } finally {
-                    ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.set(l_servletstate1_G, 0);
-                }
-            } else {
-                while (ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.get(l_servletstate1_G) == 1) {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (Thread.interrupted()) throw new InterruptedException();
-                }
-            }
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+                l_productservletbenchmark0_0.doPostBenchmark();
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            doPostBenchmark_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_servletstate1_G, l_productservletbenchmark0_0);
+            doPostBenchmark_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_productservletbenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+                    l_productservletbenchmark0_0.doPostBenchmark();
                     res.allOps++;
                 }
                 control.preTearDown();
             } catch (InterruptedException ie) {
                 control.preTearDownForce();
             }
-            if (ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.compareAndSet(l_servletstate1_G, 0, 1)) {
-                try {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (l_servletstate1_G.readyIteration) {
-                        l_servletstate1_G.readyIteration = false;
-                    }
-                } catch (Throwable t) {
-                    control.isFailing = true;
-                    throw t;
-                } finally {
-                    ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.set(l_servletstate1_G, 0);
-                }
-            } else {
-                while (ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.get(l_servletstate1_G) == 1) {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (Thread.interrupted()) throw new InterruptedException();
-                }
-            }
 
             if (control.isLastIteration()) {
-                synchronized(this.getClass()) {
-                    f_servletstate1_G = null;
-                }
                 f_productservletbenchmark0_0 = null;
             }
             res.allOps += res.measuredOps;
@@ -153,12 +111,12 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void doPostBenchmark_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, ProductServletBenchmark_ServletState_jmhType l_servletstate1_G, ProductServletBenchmark_jmhType l_productservletbenchmark0_0) throws Throwable {
+    public static void doPostBenchmark_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, ProductServletBenchmark_jmhType l_productservletbenchmark0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+            l_productservletbenchmark0_0.doPostBenchmark();
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -178,72 +136,31 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
             ProductServletBenchmark_jmhType l_productservletbenchmark0_0 = _jmh_tryInit_f_productservletbenchmark0_0(control);
-            ProductServletBenchmark_ServletState_jmhType l_servletstate1_G = _jmh_tryInit_f_servletstate1_G(control);
 
             control.preSetup();
-            if (ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.compareAndSet(l_servletstate1_G, 0, 1)) {
-                try {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (!l_servletstate1_G.readyIteration) {
-                        l_servletstate1_G.setup();
-                        l_servletstate1_G.readyIteration = true;
-                    }
-                } catch (Throwable t) {
-                    control.isFailing = true;
-                    throw t;
-                } finally {
-                    ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.set(l_servletstate1_G, 0);
-                }
-            } else {
-                while (ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.get(l_servletstate1_G) == 1) {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (Thread.interrupted()) throw new InterruptedException();
-                }
-            }
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+                l_productservletbenchmark0_0.doPostBenchmark();
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            doPostBenchmark_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_servletstate1_G, l_productservletbenchmark0_0);
+            doPostBenchmark_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_productservletbenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+                    l_productservletbenchmark0_0.doPostBenchmark();
                     res.allOps++;
                 }
                 control.preTearDown();
             } catch (InterruptedException ie) {
                 control.preTearDownForce();
             }
-            if (ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.compareAndSet(l_servletstate1_G, 0, 1)) {
-                try {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (l_servletstate1_G.readyIteration) {
-                        l_servletstate1_G.readyIteration = false;
-                    }
-                } catch (Throwable t) {
-                    control.isFailing = true;
-                    throw t;
-                } finally {
-                    ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.set(l_servletstate1_G, 0);
-                }
-            } else {
-                while (ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.get(l_servletstate1_G) == 1) {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (Thread.interrupted()) throw new InterruptedException();
-                }
-            }
 
             if (control.isLastIteration()) {
-                synchronized(this.getClass()) {
-                    f_servletstate1_G = null;
-                }
                 f_productservletbenchmark0_0 = null;
             }
             res.allOps += res.measuredOps;
@@ -261,12 +178,12 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void doPostBenchmark_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, ProductServletBenchmark_ServletState_jmhType l_servletstate1_G, ProductServletBenchmark_jmhType l_productservletbenchmark0_0) throws Throwable {
+    public static void doPostBenchmark_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, ProductServletBenchmark_jmhType l_productservletbenchmark0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+            l_productservletbenchmark0_0.doPostBenchmark();
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -286,33 +203,13 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
             ProductServletBenchmark_jmhType l_productservletbenchmark0_0 = _jmh_tryInit_f_productservletbenchmark0_0(control);
-            ProductServletBenchmark_ServletState_jmhType l_servletstate1_G = _jmh_tryInit_f_servletstate1_G(control);
 
             control.preSetup();
-            if (ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.compareAndSet(l_servletstate1_G, 0, 1)) {
-                try {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (!l_servletstate1_G.readyIteration) {
-                        l_servletstate1_G.setup();
-                        l_servletstate1_G.readyIteration = true;
-                    }
-                } catch (Throwable t) {
-                    control.isFailing = true;
-                    throw t;
-                } finally {
-                    ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.set(l_servletstate1_G, 0);
-                }
-            } else {
-                while (ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.get(l_servletstate1_G) == 1) {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (Thread.interrupted()) throw new InterruptedException();
-                }
-            }
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+                l_productservletbenchmark0_0.doPostBenchmark();
                 res.allOps++;
             }
 
@@ -321,41 +218,20 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
             int batchSize = iterationParams.getBatchSize();
             int opsPerInv = benchmarkParams.getOpsPerInvocation();
             SampleBuffer buffer = new SampleBuffer();
-            doPostBenchmark_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_servletstate1_G, l_productservletbenchmark0_0);
+            doPostBenchmark_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_productservletbenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+                    l_productservletbenchmark0_0.doPostBenchmark();
                     res.allOps++;
                 }
                 control.preTearDown();
             } catch (InterruptedException ie) {
                 control.preTearDownForce();
             }
-            if (ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.compareAndSet(l_servletstate1_G, 0, 1)) {
-                try {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (l_servletstate1_G.readyIteration) {
-                        l_servletstate1_G.readyIteration = false;
-                    }
-                } catch (Throwable t) {
-                    control.isFailing = true;
-                    throw t;
-                } finally {
-                    ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.set(l_servletstate1_G, 0);
-                }
-            } else {
-                while (ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.get(l_servletstate1_G) == 1) {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (Thread.interrupted()) throw new InterruptedException();
-                }
-            }
 
             if (control.isLastIteration()) {
-                synchronized(this.getClass()) {
-                    f_servletstate1_G = null;
-                }
                 f_productservletbenchmark0_0 = null;
             }
             res.allOps += res.measuredOps * batchSize;
@@ -370,7 +246,7 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void doPostBenchmark_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, ProductServletBenchmark_ServletState_jmhType l_servletstate1_G, ProductServletBenchmark_jmhType l_productservletbenchmark0_0) throws Throwable {
+    public static void doPostBenchmark_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, ProductServletBenchmark_jmhType l_productservletbenchmark0_0) throws Throwable {
         long realTime = 0;
         long operations = 0;
         int rnd = (int)System.nanoTime();
@@ -385,7 +261,7 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
             }
             for (int b = 0; b < batchSize; b++) {
                 if (control.volatileSpoiler) return;
-                l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+                l_productservletbenchmark0_0.doPostBenchmark();
             }
             if (sample) {
                 buffer.add((System.nanoTime() - time) / opsPerInv);
@@ -413,58 +289,17 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             ProductServletBenchmark_jmhType l_productservletbenchmark0_0 = _jmh_tryInit_f_productservletbenchmark0_0(control);
-            ProductServletBenchmark_ServletState_jmhType l_servletstate1_G = _jmh_tryInit_f_servletstate1_G(control);
 
             control.preSetup();
-            if (ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.compareAndSet(l_servletstate1_G, 0, 1)) {
-                try {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (!l_servletstate1_G.readyIteration) {
-                        l_servletstate1_G.setup();
-                        l_servletstate1_G.readyIteration = true;
-                    }
-                } catch (Throwable t) {
-                    control.isFailing = true;
-                    throw t;
-                } finally {
-                    ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.set(l_servletstate1_G, 0);
-                }
-            } else {
-                while (ProductServletBenchmark_ServletState_jmhType.setupIterationMutexUpdater.get(l_servletstate1_G) == 1) {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (Thread.interrupted()) throw new InterruptedException();
-                }
-            }
 
 
             notifyControl.startMeasurement = true;
             RawResults res = new RawResults();
             int batchSize = iterationParams.getBatchSize();
-            doPostBenchmark_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_servletstate1_G, l_productservletbenchmark0_0);
+            doPostBenchmark_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_productservletbenchmark0_0);
             control.preTearDown();
-            if (ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.compareAndSet(l_servletstate1_G, 0, 1)) {
-                try {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (l_servletstate1_G.readyIteration) {
-                        l_servletstate1_G.readyIteration = false;
-                    }
-                } catch (Throwable t) {
-                    control.isFailing = true;
-                    throw t;
-                } finally {
-                    ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.set(l_servletstate1_G, 0);
-                }
-            } else {
-                while (ProductServletBenchmark_ServletState_jmhType.tearIterationMutexUpdater.get(l_servletstate1_G) == 1) {
-                    if (control.isFailing) throw new FailureAssistException();
-                    if (Thread.interrupted()) throw new InterruptedException();
-                }
-            }
 
             if (control.isLastIteration()) {
-                synchronized(this.getClass()) {
-                    f_servletstate1_G = null;
-                }
                 f_productservletbenchmark0_0 = null;
             }
             int opsPerInv = control.benchmarkParams.getOpsPerInvocation();
@@ -477,42 +312,17 @@ public final class ProductServletBenchmark_doPostBenchmark_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void doPostBenchmark_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, ProductServletBenchmark_ServletState_jmhType l_servletstate1_G, ProductServletBenchmark_jmhType l_productservletbenchmark0_0) throws Throwable {
+    public static void doPostBenchmark_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, ProductServletBenchmark_jmhType l_productservletbenchmark0_0) throws Throwable {
         long realTime = 0;
         result.startTime = System.nanoTime();
         for (int b = 0; b < batchSize; b++) {
             if (control.volatileSpoiler) return;
-            l_productservletbenchmark0_0.doPostBenchmark(l_servletstate1_G);
+            l_productservletbenchmark0_0.doPostBenchmark();
         }
         result.stopTime = System.nanoTime();
         result.realTime = realTime;
     }
 
-    
-    static volatile ProductServletBenchmark_ServletState_jmhType f_servletstate1_G;
-    
-    ProductServletBenchmark_ServletState_jmhType _jmh_tryInit_f_servletstate1_G(InfraControl control) throws Throwable {
-        ProductServletBenchmark_ServletState_jmhType val = f_servletstate1_G;
-        if (val != null) {
-            return val;
-        }
-        synchronized(this.getClass()) {
-            try {
-            if (control.isFailing) throw new FailureAssistException();
-            val = f_servletstate1_G;
-            if (val != null) {
-                return val;
-            }
-            val = new ProductServletBenchmark_ServletState_jmhType();
-            val.readyTrial = true;
-            f_servletstate1_G = val;
-            } catch (Throwable t) {
-                control.isFailing = true;
-                throw t;
-            }
-        }
-        return val;
-    }
     
     ProductServletBenchmark_jmhType f_productservletbenchmark0_0;
     
