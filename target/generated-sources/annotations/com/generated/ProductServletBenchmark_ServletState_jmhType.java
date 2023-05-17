@@ -1,4 +1,0 @@
-package com.generated;
-public class ProductServletBenchmark_ServletState_jmhType extends ProductServletBenchmark_ServletState_jmhType_B3 {
-}
-
