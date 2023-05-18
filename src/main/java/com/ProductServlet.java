@@ -140,7 +140,49 @@ public class ProductServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            // Read the product ID from the request parameter
+            int productId = Integer.parseInt(request.getParameter("id"));
 
+            // Find the product with the given ID
+            Product product = ArrayListDataStructure.get(productId);
 
+            // Delete the product from the list
+            if (product != null) {
+                ArrayListDataStructure.delete(productId);
+
+                // Set the response type to JSON
+                response.setContentType("application/json");
+
+                // Convert the product to JSON
+                ObjectMapper mapper = new ObjectMapper();
+                String json = mapper.writeValueAsString(product);
+
+                // Write the JSON to the response body
+                response.getWriter().write(json);
+            } else {
+                // Product not found
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            }
+        } catch (NumberFormatException e) {
+            // Invalid product ID
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid product ID");
+        } catch (Exception e) {
+            // Handle exceptions
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
 
