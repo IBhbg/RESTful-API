@@ -1,5 +1,4 @@
 package com;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pro.Product;
 
@@ -15,28 +14,13 @@ public class ProductServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-   // private List<Product> products = new ArrayList<>();
-    private ProductManagerArrayList ArrayListDataStructure;
+    private ProductManagerLinkedList linkedListDataStructure;
 
     public ProductServlet() {
+        linkedListDataStructure = new ProductManagerLinkedList();
 
-
-
-        ArrayListDataStructure = new ProductManagerArrayList();
-        /*
-        ArrayListDataStructure.add(new Product(1, "Product 11", 10));
-        ArrayListDataStructure.add(new Product(2, "Product 2", 20));
-        ArrayListDataStructure.add(new Product(3, "Product 3", 30));
-
-         */
-/*
-        // Populate the list of products
-        products.add(new Product(1, "Product 1", 10));
-        products.add(new Product(2, "Product 2", 20));
-        products.add(new Product(3, "Product 3", 30));
-
- */
     }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +31,7 @@ public class ProductServlet extends HttpServlet {
 
             // Convert the list of products to JSON
             ObjectMapper mapper = new ObjectMapper();
-            String json = mapper.writeValueAsString(ArrayListDataStructure.getAll());
+            String json = mapper.writeValueAsString(linkedListDataStructure.getAll());
 
             // Write the JSON to the response body
             response.getWriter().write(json);
@@ -64,8 +48,6 @@ public class ProductServlet extends HttpServlet {
             // Read the product from the request body
             ObjectMapper mapper = new ObjectMapper();
             Product product = mapper.readValue(request.getReader(), Product.class);
-            //ProductManagerArrayList productManagerObj = mapper.readValue(request.getReader(),  ProductManagerArrayList.class);
-
 
             // Validate the product data
             if (product.getId() <= 0 || product.getName().isEmpty() || product.getPrice() <= 0) {
@@ -73,11 +55,8 @@ public class ProductServlet extends HttpServlet {
                 return;
             }
 
-
-
             // Add the product to the list
-           // products.add(product);
-            ArrayListDataStructure.add(product);
+            linkedListDataStructure.add(product);
 
             // Set the response type to JSON
             response.setContentType("application/json");
@@ -93,9 +72,6 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-
-
-
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -110,19 +86,8 @@ public class ProductServlet extends HttpServlet {
                 return;
             }
 
-            // Find the index of the product in the list
-            int index = -1;
-            for (int i = 0; i < ArrayListDataStructure.size(); i++) {
-                if (ArrayListDataStructure.getID(product) == product.getId()) {
-                    index = i;
-                    break;
-                }
-            }
-
-            // Update the product in the list
-            if (index != -1) {
-                ArrayListDataStructure.update(product);
-
+            // Find the product in the list and update it
+            if (linkedListDataStructure.update(product)) {
                 // Set the response type to JSON
                 response.setContentType("application/json");
 
@@ -140,49 +105,24 @@ public class ProductServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
+
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             // Read the product ID from the request parameter
-            int productId = Integer.parseInt(request.getParameter("id"));
-
-            // Find the product with the given ID
-            Product product = ArrayListDataStructure.get(productId);
+            int id = Integer.parseInt(request.getParameter("id"));
 
             // Delete the product from the list
-            if (product != null) {
-                ArrayListDataStructure.delete(productId);
-
-                // Set the response type to JSON
-                response.setContentType("application/json");
-
-                // Convert the product to JSON
-                ObjectMapper mapper = new ObjectMapper();
-                String json = mapper.writeValueAsString(product);
-
-                // Write the JSON to the response body
-                response.getWriter().write(json);
+            if (linkedListDataStructure.delete(id)) {
+                response.setStatus(HttpServletResponse.SC_OK);
             } else {
                 // Product not found
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-        } catch (NumberFormatException e) {
-            // Invalid product ID
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid product ID");
         } catch (Exception e) {
             // Handle exceptions
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
