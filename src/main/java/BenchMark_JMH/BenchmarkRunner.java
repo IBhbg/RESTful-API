@@ -7,7 +7,8 @@ public class BenchmarkRunner {
     public static void main(String[] args) throws Exception {
         Options options = new OptionsBuilder()
                 //.include(ProductManagerArrayListBenchmark.class.getSimpleName())
-                .include(ProductManagerLinkedListBenchmark.class.getSimpleName())
+                //.include(ProductManagerLinkedListBenchmark.class.getSimpleName())
+                .include(ProductManagerBenchmark.class.getSimpleName())  // ProductManagerLinkedList as data manager
                // .forks(1)
                 .build();
 
