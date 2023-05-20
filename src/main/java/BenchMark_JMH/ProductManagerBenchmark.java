@@ -6,6 +6,7 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.infra.Blackhole;
 import pro.Product;
 
 import java.io.IOException;
@@ -49,16 +50,17 @@ public class ProductManagerBenchmark {
     public String updateProduct() throws IOException {
         int Product = 0;
         int productId = // Choose an existing product ID to update
-                Product; Product product = new Product(productId, "Updated Product", 9999);
+                Product;
+        Product product = new Product(productId, "Updated Product", 9999);
         linkedListDataStructure.update(product);
         return objectMapper.writeValueAsString(product);
     }
 
 
     @Benchmark
-    public boolean deleteProduct() {
+    public void deleteProduct(Blackhole blackhole) {
         int productId = 0; // Choose an existing product ID to delete
-        return linkedListDataStructure.delete(productId);
+        blackhole.consume(linkedListDataStructure.delete(productId));
     }
 
 }
