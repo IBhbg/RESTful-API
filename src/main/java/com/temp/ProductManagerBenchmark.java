@@ -1,7 +1,10 @@
-package BenchMark_JMH;
+package com.temp;
 
 import com.ProductManagerLinkedList;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jRAPL.EnergyDiff;
+import jRAPL.EnergyStats;
+import jRAPL.SyncEnergyMonitor;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
@@ -40,8 +43,18 @@ public class ProductManagerBenchmark {
 
     @Benchmark
     public String addProduct() throws IOException {
+        // Add jRAPL.EnergyMonitor to the product list
+        SyncEnergyMonitor m = new SyncEnergyMonitor();
+        m.activate();
+
+        EnergyStats before = m.getSample();
         Product product = new Product(products.size() + 1, "Product " + (products.size() + 1), (products.size() + 1) * 10000);
         linkedListDataStructure.add(product);
+        EnergyStats after = m.getSample();
+
+        EnergyDiff diff = EnergyDiff.between(before, after);
+        System.out.println(diff.csv());
+        m.deactivate();
         return objectMapper.writeValueAsString(product);
     }
 

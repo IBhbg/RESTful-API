@@ -1,4 +1,4 @@
-package BenchMark_JMH;
+package com.temp;
 
 import org.openjdk.jmh.annotations.*;
 
