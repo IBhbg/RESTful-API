@@ -20,6 +20,7 @@ com/temp/EnergyConsumption.class
 com/temp/generated/ProductManagerArrayListBenchmark_jmhType.class
 com/temp/generated/ProductManagerBenchmark_jmhType_B2.class
 com/temp/generated/ProductManagerBenchmark_updateProduct_jmhTest.class
+com/demo/optimizeapp.class
 com/temp/generated/ProductManagerLinkedListBenchmark_jmhType_B2.class
 com/temp/generated/ProductManagerLinkedListBenchmark_getBenchmark_jmhTest.class
 com/temp/generated/ProductManagerLinkedListBenchmark_addBenchmark_jmhTest.class
@@ -27,7 +28,6 @@ com/temp/generated/ProductManagerArrayListBenchmark_getIDBenchmark_jmhTest.class
 com/temp/ProductManagerLinkedListBenchmark.class
 pro/Product.class
 com/ProductServlet.class
-com/demo/app.class
 com/temp/generated/ProductManagerLinkedListBenchmark_deleteBenchmark_jmhTest.class
 com/temp/generated/ProductManagerBenchmark_deleteProduct_jmhTest.class
 com/temp/generated/ProductManagerBenchmark_jmhType_B1.class

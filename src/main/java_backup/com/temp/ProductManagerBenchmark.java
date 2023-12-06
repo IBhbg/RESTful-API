@@ -53,7 +53,7 @@ public class ProductManagerBenchmark {
         EnergyStats after = m.getSample();
 
         EnergyDiff diff = EnergyDiff.between(before, after);
-        System.out.println(diff.csv()+" ivan");
+        System.out.println(diff.csv());
         m.deactivate();
         return objectMapper.writeValueAsString(product);
     }
