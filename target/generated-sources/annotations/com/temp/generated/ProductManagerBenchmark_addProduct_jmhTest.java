@@ -75,7 +75,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+                l_productmanagerbenchmark0_G.addProduct();
                 res.allOps++;
             }
 
@@ -85,7 +85,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+                    l_productmanagerbenchmark0_G.addProduct();
                     res.allOps++;
                 }
                 control.preTearDown();
@@ -139,7 +139,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+            l_productmanagerbenchmark0_G.addProduct();
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -165,7 +165,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+                l_productmanagerbenchmark0_G.addProduct();
                 res.allOps++;
             }
 
@@ -175,7 +175,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+                    l_productmanagerbenchmark0_G.addProduct();
                     res.allOps++;
                 }
                 control.preTearDown();
@@ -229,7 +229,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+            l_productmanagerbenchmark0_G.addProduct();
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -255,7 +255,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+                l_productmanagerbenchmark0_G.addProduct();
                 res.allOps++;
             }
 
@@ -269,7 +269,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+                    l_productmanagerbenchmark0_G.addProduct();
                     res.allOps++;
                 }
                 control.preTearDown();
@@ -330,7 +330,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
             }
             for (int b = 0; b < batchSize; b++) {
                 if (control.volatileSpoiler) return;
-                blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+                l_productmanagerbenchmark0_G.addProduct();
             }
             if (sample) {
                 buffer.add((System.nanoTime() - time) / opsPerInv);
@@ -409,7 +409,7 @@ public final class ProductManagerBenchmark_addProduct_jmhTest {
         result.startTime = System.nanoTime();
         for (int b = 0; b < batchSize; b++) {
             if (control.volatileSpoiler) return;
-            blackhole.consume(l_productmanagerbenchmark0_G.addProduct());
+            l_productmanagerbenchmark0_G.addProduct();
         }
         result.stopTime = System.nanoTime();
         result.realTime = realTime;

@@ -2,10 +2,7 @@ package com.temp;
 
 import com.ProductManagerLinkedList;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jRAPL.EnergyDiff;
-import jRAPL.EnergyMonitor;
-import jRAPL.EnergyStats;
-import jRAPL.SyncEnergyMonitor;
+import jRAPL.*;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
@@ -57,28 +54,67 @@ public class ProductManagerBenchmark extends EnergyMonitor {
     }
 */
     @Benchmark
-    public String addProduct() throws IOException, InterruptedException {
-        // Add jRAPL.EnergyMonitor to the product list
+    public void addProduct() throws IOException, InterruptedException {
         SyncEnergyMonitor monitor = new SyncEnergyMonitor();
         monitor.activate();
-
+        Product product = null;
+/*
         System.out.println(" -- running with primitive array sample...");
         double[] _before = monitor.getPrimitiveSample();
         double[] _after;
         double[] _diff;
-        Product product = null;
-
         for (int i = 0; i < 10; i++) {
             Thread.sleep(100);
-            product = new Product(products.size() + 1, "Product " + (products.size() + 1), (products.size() + 1) * 10000);
-            linkedListDataStructure.add(product);
             _after = monitor.getPrimitiveSample();
             _diff = EnergyMonitor.subtractPrimitiveSamples(_after,_before);
             System.out.println(DemoUtils.csvPrimitiveArray(_diff));
             _before = _after;
         }
 
-        return objectMapper.writeValueAsString(product);
+ */
+
+        System.out.println("\n -- running with EnergyDiff sample...");
+        EnergyStats before = monitor.getSample();
+        EnergyStats after;
+        EnergyDiff diff;
+        System.out.println(EnergyDiff.csvHeader());
+        for (int i = 0; i < 100; i++) {
+            Thread.sleep(100);
+            product = new Product(products.size() + 1, "Product " + (products.size() + 1), (products.size() + 1) * 10000);
+            linkedListDataStructure.add(product);
+            after = monitor.getSample();
+            diff = EnergyDiff.between(before,after);
+            System.out.println(diff.csv());
+            before = after;
+        }
+
+
+        System.out.println("\n -- running with EnergyStats sample...");
+        System.out.println(EnergyStats.csvHeader());
+        for (int i = 0; i < 100; i++) {
+            Thread.sleep(100);
+            product = new Product(products.size() + 1, "Product " + (products.size() + 1), (products.size() + 1) * 10000);
+            linkedListDataStructure.add(product);
+            System.out.println(monitor.getSample().csv());
+        }
+
+        EnergyStats stats = monitor.getSample();
+        System.out.println("wait 1000ms...");
+        Thread.sleep(1000);
+        product = new Product(products.size() + 1, "Product " + (products.size() + 1), (products.size() + 1) * 10000);
+        linkedListDataStructure.add(product);
+        EnergyDiff d = EnergyDiff.between(stats, monitor.getSample());
+        System.out.println("EnergyDiff over 1000ms:");
+        for (int socket = 1; socket <= ArchSpec.NUM_SOCKETS; socket++) {
+            System.out.println("Dram_Sock"+socket+": "+d.getDram(socket));
+            System.out.println("Core_Sock"+socket+": "+d.getCore(socket));
+            System.out.println("Gpu_Sock"+socket+": "+d.getGpu(socket));
+            System.out.println("Package_Sock"+socket+": "+d.getPackage(socket));
+        }
+
+        monitor.deactivate();
+
+
     }
 
 /*
