@@ -5,3 +5,11 @@
 # To run Agent: sudo java -javaagent:/home/superman/Skrivbord/joularjx-develop/install/joularjx-2.8.1.jar -cp "/home/superman/Skrivbord/exam/RESTful-API-main/target/rest-api-0.0.1-SNAPSHOT/WEB-INF/classes" com.demo.app
 
 
+## Table of Contents
+
+1. [Project Title](#project-title)
+2. [Description](#description)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
