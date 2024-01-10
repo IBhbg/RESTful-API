@@ -4,7 +4,7 @@ Write ...
 ## Prerequeisites
 ## How to build
 IntelliJ not from the Toolbox! ...
-Download and install [jRAPL] (https://github.com/aservet1/jRAPL)
+Download and install [jRAPL](https://github.com/aservet1/jRAPL)
 
 ## Running
 To run jRAPL and JMH run:
