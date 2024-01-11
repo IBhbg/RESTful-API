@@ -15,7 +15,8 @@ sudo java -cp "target/rest-api-0.0.1-SNAPSHOT/WEB-INF/classes:target/rest-api-0.
 ```
 To run Java agent:
 ```
-sudo java -javaagent:/home/superman/Skrivbord/joularjx-develop/install/joularjx-2.8.1.jar -cp "/home/superman/Skrivbord/RESTful-API-main/target/rest-api-0.0.1-SNAPSHOT/WEB-INF/classes" com.demo.app
+sudo java -javaagent:/home/superman/Skrivbord/joularjx-develop/install/joularjx-2.8.1.jar -cp "/home/superman/Skrivbord/RESTful-API/target/classes" com.demo.app
+
 ```
 
 
