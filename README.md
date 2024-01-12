@@ -1,23 +1,35 @@
 # Servlet base RESTful-API
 ## Background
-The is a RESTful API Servlet based. It uses CRUD operations. It has four methods at basic level.
+The is a RESTful API Servlet based. It uses CRUD operations. It has some methods at basic level.
 Those methods are used in ProductServlet class. Those methods are optimized in optimizeapp. The app class is to check how much energy those methods consume (wihtout any optimization) when running with a Java agent. 
 Write ...
 ## How to build
-Install maven on your machine. I use a Linux distro. Take a look at the pom file. Download and install [jRAPL](https://github.com/aservet1/jRAPL). Import and install [Java Microbench Harness](https://github.com/openjdk/jmh), JMH. It is poosible to add JMH from Plugins. If you are interested in testing Servlet to see if those methods works then download [Apache Tomacat](https://tomcat.apache.org/download-90.cgi)and configure your settings. 
+Install maven on your machine. I use a Linux distro. Take a look at the pom file. Download and install [jRAPL](https://github.com/aservet1/jRAPL). Import and install [Java Microbench Harness](https://github.com/openjdk/jmh), JMH. It is poosible to add JMH from Plugins. If you are interested in the application to see if those methods works then download [Apache Tomacat](https://tomcat.apache.org/download-90.cgi) and configure your settings. 
 IntelliJ not from the Toolbox! 
 
 
-## Running -- Add screenshoot!
-To run jRAPL and JMH run:
+## Running
+Before running a benchmark you have to run:
+```
+sudo modprobe msr
+```
+### The command below is for benchmarking:`
 ```
 sudo java -cp "target/rest-api-0.0.1-SNAPSHOT/WEB-INF/classes:target/rest-api-0.0.1-SNAPSHOT/WEB-INF/lib/*:/home/superman/Skrivbord/höst2023/jRAPL-master/src/java/target/jRAPL-1.0.jar" com.demo.optimizeapp
 ```
-To run Java agent:
+### The benchmark starts
+![start](https://github.com/IBhbg/RESTful-API/blob/main/images/.b/start.png)
+###
+### The benchmark stops  
+![stop](https://github.com/IBhbg/RESTful-API/blob/main/images/.b/End.png)
+
+Java agent:
 ```
 sudo java -javaagent:/home/superman/Skrivbord/joularjx-develop/install/joularjx-2.8.1.jar -cp "/home/superman/Skrivbord/RESTful-API/target/classes" com.demo.app
 
 ```
+## Running Java Agent 
+![a](https://github.com/IBhbg/RESTful-API/blob/main/images/.a/JavaAgent.png)
 
 
 ## Code
