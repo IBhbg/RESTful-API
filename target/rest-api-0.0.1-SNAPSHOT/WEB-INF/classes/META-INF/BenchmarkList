@@ -1,1 +1,3 @@
+JMH S 32 com.temp.ProductManagerBenchmark S 64 com.temp.generated.ProductManagerBenchmark_updateProduct_jmhTest S 13 updateProduct S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 32 com.temp.ProductManagerBenchmark S 64 com.temp.generated.ProductManagerBenchmark_deleteProduct_jmhTest S 13 deleteProduct S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
 JMH S 32 com.temp.ProductManagerBenchmark S 61 com.temp.generated.ProductManagerBenchmark_addProduct_jmhTest S 10 addProduct S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 

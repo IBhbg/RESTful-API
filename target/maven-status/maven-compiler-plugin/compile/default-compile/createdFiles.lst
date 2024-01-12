@@ -1,10 +1,13 @@
 META-INF/CompilerHints
+com/temp/generated/ProductManagerBenchmark_updateProduct_jmhTest.class
 com/demo/optimizeapp.class
 com/temp/generated/ProductManagerBenchmark_jmhType.class
 pro/Product.class
 com/ProductServlet.class
 com/temp/ProductManagerBenchmark$DemoUtils.class
+com/demo/app.class
 com/temp/generated/ProductManagerBenchmark_addProduct_jmhTest.class
+com/temp/generated/ProductManagerBenchmark_deleteProduct_jmhTest.class
 META-INF/BenchmarkList
 com/temp/generated/ProductManagerBenchmark_jmhType_B1.class
 com/temp/ProductManagerBenchmark.class
