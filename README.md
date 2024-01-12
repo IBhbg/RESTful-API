@@ -13,9 +13,8 @@ Before running a benchmark you have to run:
 ```
 sudo modprobe msr
 ```
+### The command below is for benchmarking:`
 ```
-### The command below is for benchmarking:
-
 sudo java -cp "target/rest-api-0.0.1-SNAPSHOT/WEB-INF/classes:target/rest-api-0.0.1-SNAPSHOT/WEB-INF/lib/*:/home/superman/Skrivbord/höst2023/jRAPL-master/src/java/target/jRAPL-1.0.jar" com.demo.optimizeapp
 ```
 ### The benchmark starts
