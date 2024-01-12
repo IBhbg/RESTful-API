@@ -9,7 +9,10 @@ IntelliJ not from the Toolbox!
 
 
 ## Running
-To run jRAPL and JMH run:
+Before running a benchmark you have to run:
+```
+sudo modprobe msr
+```
 ```
 sudo java -cp "target/rest-api-0.0.1-SNAPSHOT/WEB-INF/classes:target/rest-api-0.0.1-SNAPSHOT/WEB-INF/lib/*:/home/superman/Skrivbord/höst2023/jRAPL-master/src/java/target/jRAPL-1.0.jar" com.demo.optimizeapp
 ```
@@ -19,7 +22,7 @@ sudo java -cp "target/rest-api-0.0.1-SNAPSHOT/WEB-INF/classes:target/rest-api-0.
 ### The benchmark stops  
 ![stop](https://github.com/IBhbg/RESTful-API/blob/main/images/.b/End.png)
 
-To run Java agent:
+Java agent:
 ```
 sudo java -javaagent:/home/superman/Skrivbord/joularjx-develop/install/joularjx-2.8.1.jar -cp "/home/superman/Skrivbord/RESTful-API/target/classes" com.demo.app
 
